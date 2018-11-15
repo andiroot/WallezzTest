@@ -65,20 +65,24 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+            
                 <div class="top-right links">
-                    @auth
+                   
                         <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
+                    
+                    <a href="{{route('barang.add')}}">Input Barang</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+                       
+                        <a href="{{route('barang.index')}}">Data Barang</a>
+                      
+                    <a href="{{route('penjualan.index')}}">Penjualan</a><br>
+           
                 </div>
-            @endif
-
+            
+            <a href="{{route('penjualan.index')}}">Penjualan</a>
+            
+            
+           
             <div class="content">
                 <div class="title m-b-md">
                     Laravel
