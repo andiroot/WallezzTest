@@ -1,0 +1,94 @@
+############################################## INI UNTUK SOAL PERTAMA #################################################################
+#######################################################################################################################################
+
+
+1. Bahasa pemrograman yang menggunakan paradigma atau cara berpikir atau teknik pemrograman yang mengorientasikan seluruhnya berupa object-object yang berisi class-class.
+
+MVC adalah arsitektur dalam perangkat lunak yang memisahkan beberapa layer antara model (akses database) dengan view (presentasi data) dan controller(yang menjembatani atau menghandle request dari view dan response dari model atau sebaliknya)
+
+
+2.mysql_fetch_array() -> function dalam mysql untuk mengambil data dari database yang mereturn hasilnya berupa array()
+mysql_fetch_row() -> function dalam mysql untuk mengambil data dari database yang mereturn hasil dari eksekusi query bedasarkan baris atau row dari tabel yang dipilih
+mysql_fetch_assoc() -> function dalam mysql yang berfungsi untuk mengambil data dan mereturn hasil querynya berupa association array
+
+3.<?php
+$_POST['data']=-11;
+ 
+if(isset($_POST['data'])){
+ 
+ 
+    $fibnum = $_POST['data'];
+ 
+ 
+    function fibRec($fibnum){
+ 
+        if ($fibnum < 0){
+        return ( "error, bilangan negative");
+        }
+            elseif ($fibnum == 0){
+ 
+                return ("0");
+            }
+ 
+                elseif ($fibnum == 1){
+ 
+                    return ("1");
+                }
+ 
+                    else {
+ 
+                        $sum = fibRec($fibnum-1)+fibRec($fibnum-2);
+                        return ($sum);
+                    }
+ 
+    }
+        $fib = fibRec($fibnum);
+        echo $fib;          
+ 
+}          
+?>
+
+
+4. * menampilkan isi tabel tb_mahasiswa (select * from tb_mahasiswa)
+   * menampilkan isi tabel tb_matkul (select * from tb_matkul)
+   * menampilkan isi tabel tb_nilai (select * from tb_nilai)
+
+mengisi data tabel tb_mahasiswa "INSERT INTO `tb_mahasiswa` (`id_mahasiswa`, `nama_mahasiswa`) VALUES ('1001', 'budi'), ('1002', 'aris'), ('1003', 'panji');"
+ 
+mengisi data tabel tb_matkul "INSERT INTO `tb_matkul` (`id_matkul`, `nama_matkul`) VALUES ('101', 'Struktur Data'), ('102', 'Rangkaian Digital'), ('103', 'Aljabar Linear');"
+
+mengisi data tabel nilai 
+"INSERT INTO `tb_nilai` (`id_nilai`, `id_mahasiswa`,`id_matkul`,`nilai`) VALUES ('1000001', '1001', '101','85'),
+	('1000002', '1001', '102','75')
+	('1000003', '1001', '103','70')
+	('1000004', '1002', '101','69')
+	('1000005', '1002', '102','55')
+	('1000006', '1002', '103','90')
+	('1000007', '1003', '101','73')
+	('1000008', '1003', '102','81')
+	('1000009', '1003', '103','61')	"
+
+membuat foreign key
+" ALTER TABLE tb_nilai ADD CONSTRAINT id_mahasiswa FOREIGN KEY (id_mahasiswa) REFERENCES tb_mahasiswa(id_mahasiswa),
+ADD CONSTRAINT id_matkul FOREIGN KEY (id_matkul) REFERENCES tb_matkul(id_matkul)"
+
+
+5.SELECT tb_mahasiswa.nama_mahasiswa, tb_matkul.nama_matakuliah, nilai INNER JOIN tb_mahasiswa ON tb_nilai.id_mahasiswa=tb_mahasiswa.id_mahasiswa
+INNER JOIN tb_matkul ON tb.nilai.id_matkul=tb_matkul.id_matkul
+
+
+6.<?php
+class BangunRuang{
+	function hitungLuasLingkaran($r ){
+		$luas=3.14*pow($r,2);
+		return $luas;
+	}
+	function hitungVolumeBola($r){
+		$volume=4/3*3.14*pow($r,3);
+		return $volume;
+	}
+}           
+$bangunRuang = new BangunRuang();
+
+echo $bangunRuang->hitungVolumeBola(7);
+?>  
